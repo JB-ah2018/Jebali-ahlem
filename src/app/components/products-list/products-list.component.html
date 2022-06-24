@@ -1,0 +1,21 @@
+<div class="container" style="padding: 10px;">
+
+    <label  class="form-label">Search</label>
+    <input class="form-control" [(ngModel)]="input">
+
+
+<div *ngFor="let product of listProdcut | searchFilter:input:'title'" style="display:inline-block; padding: 10px;"> 
+<div class="card" style="width: 18rem;" >
+    <h3>{{product.id}}</h3>
+    <div class="card-body">
+      <h5 class="card-title">{{product.title}}</h5>
+      <p class="card-text">Price : {{product.price}}</p>
+      <p class="card-text">Quantity : {{product.quantity}}</p>
+      <p class="card-text">Likes : {{product.like}}</p>
+     
+      <button (click)="buy($event,product.id)" [disabled]="product.quantity==0" class="btn btn-primary">Buy</button>
+      <a style="margin: 10px;"(click)="like($event,product.id)" class="btn btn-primary">Like</a>    </div>
+  </div>
+</div>
+
+</div>
